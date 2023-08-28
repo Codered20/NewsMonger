@@ -32,14 +32,14 @@ class App extends React.Component {
     console.log(Keyword);
     return (
       <div>
-        <Router>
+        <Router basename="/">
           <NavBar />
           <LoadingBar
             color='#f11946'
             progress={this.state.progress}
           />
           <Routes>
-            {/* <Route exact path="/" element={<News setProgress={this.setProgress} q={null} key="general" pageSize={24} country="in" category="general" />} /> */}
+            <Route exact path="/" element={<News setProgress={this.setProgress} q={null} key="general" pageSize={24} country="in" category="general" />} />
             <Route exact path="/general" element={<News setProgress={this.setProgress} q={null} key="general" pageSize={24} country="in" category="general" />} />
             <Route exact path="/business" element={<News setProgress={this.setProgress} q={null} key="business" pageSize={24} country="in" category="business" />} />
             <Route exact path="/entertainment" element={<News setProgress={this.setProgress} q={null} key="entertainment" pageSize={24} country="in" category="entertainment" />} />
@@ -47,7 +47,7 @@ class App extends React.Component {
             <Route exact path="/science" element={<News setProgress={this.setProgress} q={null} key="science" pageSize={24} country="in" category="science" />} />
             <Route exact path="/sports" element={<News setProgress={this.setProgress} q={null} key="sports" pageSize={24} country="in" category="sports" />} />
             <Route exact path="/technology" element={<News setProgress={this.setProgress} q={null} key="technology" pageSize={24} country="in" category="technology" />} />
-            <Route exact path="*" element={<News setProgress={this.setProgress} q={Keyword} key={Keyword} pageSize={24} />} />
+            {/* <Route exact path="*" element={<News setProgress={this.setProgress} q={Keyword} key={Keyword} pageSize={24} />} /> */}
           </Routes>
         </Router>
       </div>

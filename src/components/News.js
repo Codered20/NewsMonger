@@ -37,12 +37,12 @@ class News extends React.Component {
 
     async componentDidMount() {
         this.updateItem();
-        console.log(this.props.q)
+        console.log(this.props.q);
     }
 
     updateItem = async () => {
-        let url = this.props.q ? `https://newsapi.org/v2/everything?q=${this.props.q}&apiKey=9238f3b3e5334b3e95d2ad205779edb1&page=${this.state.page}&pageSize=${this.props.pageSize}
-        `: `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9238f3b3e5334b3e95d2ad205779edb1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let url = this.props.q ? `https://newsapi.org/v2/everything?q=${this.props.q}&apiKey=3231d3c21a32481b846e23c8dff2faa5&page=${this.state.page}&pageSize=${this.props.pageSize}
+        `: `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=3231d3c21a32481b846e23c8dff2faa5&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ Loading: true });
         this.props.setProgress(10)
         let data = await fetch(url);
@@ -88,8 +88,8 @@ class News extends React.Component {
         // a fake async api call like which sends
         // 20 more records in 1.5 secs
         this.setState({ page: this.state.page + 1 })
-        let url = this.props.q ? `https://newsapi.org/v2/everything?q=${this.props.q}&apiKey=9238f3b3e5334b3e95d2ad205779edb1&page=${this.state.page}&pageSize=${this.props.pageSize}
-        `: `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9238f3b3e5334b3e95d2ad205779edb1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let url = this.props.q ? `https://newsapi.org/v2/everything?q=${this.props.q}&apiKey=3231d3c21a32481b846e23c8dff2faa5&page=${this.state.page}&pageSize=${this.props.pageSize}
+        `: `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=3231d3c21a32481b846e23c8dff2faa5&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ Loading: true });
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -113,9 +113,9 @@ class News extends React.Component {
 
             {this.state.respons ? <div className="row my-4">
                 {this.state.articles.map((element) => {
-                    return <div className="col-md-3" key={element.url}>
+                    return element.title!=="[Removed]"? <div className="col-md-3" key={element.url}>
                         <NewsItem title={element.title ? element.title : "..."} description={element.description ? element.description : "..."} date={element.publishedAt} imageUrl={element.urlToImage ? element.urlToImage : this.defUrl} Url={element.url} author={element.author} source={element.source.name} />
-                    </div>
+                    </div>:null;
                 })}
             </div> :
                 <div className="row my-4">

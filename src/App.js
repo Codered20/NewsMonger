@@ -47,7 +47,7 @@ class App extends React.Component {
             <Route exact path="/science" element={<News setProgress={this.setProgress} q={null} key="science" pageSize={24} country="in" category="science" />} />
             <Route exact path="/sports" element={<News setProgress={this.setProgress} q={null} key="sports" pageSize={24} country="in" category="sports" />} />
             <Route exact path="/technology" element={<News setProgress={this.setProgress} q={null} key="technology" pageSize={24} country="in" category="technology" />} />
-            {/* <Route exact path="*" element={<News setProgress={this.setProgress} q={Keyword} key={Keyword} pageSize={24} />} /> */}
+            <Route exact path="*" element={<News setProgress={this.setProgress} q={Keyword} key={Keyword} pageSize={24} />} />
           </Routes>
         </Router>
       </div>

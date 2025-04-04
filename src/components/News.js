@@ -38,12 +38,15 @@ function News() {
             json = data;
           }
           setArticles(json.data || json.news || []);
+          if(articles.length===0){
+            setError("No articles found!");
+          }
         } else {
           setError("No articles found!");
           setArticles([]);
         }
       } catch (error) {
-        setError("Error fetching news. Please try again.");
+        setError("Api limit reached for today. Sorry we are done for the day. For continued service please choose our premium plans");
       } finally {
         setLoading(false);
       }

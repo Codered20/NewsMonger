@@ -8,6 +8,7 @@ function News() {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const api_url = "https://newsapplicationbackend-production.up.railway.app/";
   const defUrl = "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/05/breaking-news-1621477618-1621902360.jpg";
 
   useEffect(() => {
@@ -15,12 +16,12 @@ function News() {
       setLoading(true);
       setError("");
 
-      let url = "http://localhost:8082/getNews";
+      let url = `${api_url}getNews`;
       console.log("Keyword: " + search + " Category: " + category)
       if (search.length !== 0) {
-        url = `http://localhost:8082/getNews/keyword/${encodeURIComponent(search)}`;
+        url = `${api_url}getNews/keyword/${encodeURIComponent(search)}`;
       } else if (category.length !== 0) {
-        url = `http://localhost:8082/getNews/category/${category}`;
+        url = `${api_url}getNews/category/${category}`;
       }
       console.log(url);
       try {

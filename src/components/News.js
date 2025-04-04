@@ -17,24 +17,24 @@ function News() {
       setError("");
 
       let url = `${api_url}getNews`;
-      console.log("Keyword: " + search + " Category: " + category)
+      // console.log("Keyword: " + search + " Category: " + category)
       if (search.length !== 0) {
         url = `${api_url}getNews/keyword/${encodeURIComponent(search)}`;
       } else if (category.length !== 0) {
         url = `${api_url}getNews/category/${category}`;
       }
-      console.log(url);
+      // console.log(url);
       try {
         const resp = await fetch(url, { method: "GET", headers: { Accept: "application/json" } });
         if (!resp.ok) throw new Error("Failed to fetch news");
 
         let json = await resp.json();
-        console.log("API Response:", json);
+        // console.log("API Response:", json);
 
         if (json.status === "ok") {
           if (search.length !== 0) {
             const data = JSON.parse(json.news);
-            console.log(data);
+            // console.log(data);
             json = data;
           }
           const newsList = json.data || json.news || [];

@@ -37,8 +37,10 @@ function News() {
             console.log(data);
             json = data;
           }
-          setArticles(json.data || json.news || []);
-          if(articles.length===0){
+          const newsList = json.data || json.news || [];
+          setArticles(newsList);
+
+          if (newsList.length === 0) {
             setError("No articles found!");
           }
         } else {
@@ -69,7 +71,7 @@ function News() {
                   title={element.title || "..."}
                   description={element.description || "..."}
                   date={element.published || element.published_at}
-                  imageUrl={element.image !== "None" && element.image!==null ? element.image : defUrl}
+                  imageUrl={element.image !== "None" && element.image !== null ? element.image : defUrl}
                   Url={element.url}
                   author={element.author || "Unknown"}
                 />

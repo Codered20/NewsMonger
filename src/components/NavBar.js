@@ -12,6 +12,7 @@ function NavBar() {
 
     const handleSearchSubmit = (event) => {
         event.preventDefault(); // Prevent page reload
+        console.log("Search Update");
         setSearch(keyword);
         setCategory("");
     }

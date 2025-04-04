@@ -7,9 +7,10 @@ const AppProvider = ({ children }) => {
   // Define two state variables
   const [keyword, setKeyword] = useState("");
   const [category, setCategory] = useState("");
+  const [search, setSearch] = useState("");
 
   return (
-    <AppContext.Provider value={{ keyword, setKeyword, category, setCategory}}>
+    <AppContext.Provider value={{ keyword, setKeyword, category, setCategory, search, setSearch}}>
       {children}
     </AppContext.Provider>
   );

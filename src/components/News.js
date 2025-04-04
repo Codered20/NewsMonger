@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import { AppContext } from "./context/context";
 
 function News() {
-  const { category, keyword } = useContext(AppContext);
+  const { category, search } = useContext(AppContext);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -16,21 +16,26 @@ function News() {
       setError("");
 
       let url = "http://localhost:8082/getNews";
-      console.log("Keyword: "+keyword+" Category: "+category)
-      if (keyword.length!==0) {
-        url = `http://localhost:8082/getNews/keyword/${encodeURIComponent(keyword)}`;
-      } else if (category.length!==0) {
+      console.log("Keyword: " + search + " Category: " + category)
+      if (search.length !== 0) {
+        url = `http://localhost:8082/getNews/keyword/${encodeURIComponent(search)}`;
+      } else if (category.length !== 0) {
         url = `http://localhost:8082/getNews/category/${category}`;
       }
       console.log(url);
       try {
         const resp = await fetch(url, { method: "GET", headers: { Accept: "application/json" } });
         if (!resp.ok) throw new Error("Failed to fetch news");
-        
-        const json = await resp.json();
+
+        let json = await resp.json();
         console.log("API Response:", json);
 
         if (json.status === "ok") {
+          if (search.length !== 0) {
+            const data = JSON.parse(json.news);
+            console.log(data);
+            json = data;
+          }
           setArticles(json.data || json.news || []);
         } else {
           setError("No articles found!");
@@ -44,7 +49,7 @@ function News() {
     }
 
     fetchData();
-  }, [keyword, category]);
+  }, [search, category]);
 
   return (
     <div className="container my-3">
@@ -59,8 +64,8 @@ function News() {
                 <NewsItem
                   title={element.title || "..."}
                   description={element.description || "..."}
-                  date={element.published}
-                  imageUrl={element.image!=="None"? element.image:defUrl}
+                  date={element.published || element.published_at}
+                  imageUrl={element.image !== "None" && element.image!==null ? element.image : defUrl}
                   Url={element.url}
                   author={element.author || "Unknown"}
                 />

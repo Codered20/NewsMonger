@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AppContext } from './context/context';
 import { Link } from "react-router-dom";
 
 function NavBar() {
-    const { setKeyword, setCategory } = useContext(AppContext);
-    const [searchInput, setSearchInput] = useState("");
+    const { keyword, setKeyword, setCategory, setSearch } = useContext(AppContext);
 
     const handleHome = () => {
         setKeyword("");
@@ -13,7 +12,7 @@ function NavBar() {
 
     const handleSearchSubmit = (event) => {
         event.preventDefault(); // Prevent page reload
-        setKeyword(searchInput);
+        setSearch(keyword);
         setCategory("");
     }
 
@@ -34,30 +33,35 @@ function NavBar() {
                                 <Link className="nav-link" to="/business" onClick={() => {
                                     setCategory("business");
                                     setKeyword("");
+                                    setSearch("");
                                 }}>Business</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/entertainment" onClick={() => {
                                     setCategory("entertainment");
                                     setKeyword("");
+                                    setSearch("");
                                 }}>Entertainment</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/general" onClick={() => {
                                     setCategory("general");
                                     setKeyword("");
+                                    setSearch("");
                                 }}>General</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/health" onClick={() => {
                                     setCategory("health");
                                     setKeyword("");
+                                    setSearch("");
                                     }}>Health</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/science" onClick={() => {
                                     setCategory("science");
                                     setKeyword("");
+                                    setSearch("");
                                     }
                                 }>Science</Link>
                             </li>
@@ -65,12 +69,14 @@ function NavBar() {
                                 <Link className="nav-link" to="/sports" onClick={() => {
                                     setCategory("sports");
                                     setKeyword("");
+                                    setSearch("");
                                 }}>Sports</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/technology" onClick={() => {
                                     setCategory("technology");
                                     setKeyword("");
+                                    setSearch("");
                                 }}>Technology</Link>
                             </li>
                         </ul>
@@ -80,8 +86,8 @@ function NavBar() {
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                                value={searchInput}
-                                onChange={(e) => setSearchInput(e.target.value)}
+                                value={keyword}
+                                onChange={(e) => setKeyword(e.target.value)}
                             />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>

@@ -11,7 +11,7 @@ function NavBar() {
     }
 
     const handleSearchSubmit = (event) => {
-        event.preventDefault(); // Prevent page reload
+        event.preventDefault();
         setSearch(keyword);
         setCategory("");
     }

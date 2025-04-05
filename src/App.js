@@ -12,7 +12,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route exact path="/NewsMonger" element={<News category="general" />} />
+          <Route exact path="/NewsMonger/" element={<News category="general" />} />
           <Route exact path="/NewsMonger/business" element={<News category="business" />} />
           <Route exact path="/NewsMonger/entertainment" element={<News category="entertainment" />} />
           <Route exact path="/NewsMonger/health" element={<News category="health" />} />

@@ -20,45 +20,45 @@ function NavBar() {
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">News Monger</Link>
+                    <Link className="navbar-brand" to="/NewsMonger/">News Monger</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/" onClick={handleHome}>Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/NewsMonger/" onClick={handleHome}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/business" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/business" onClick={() => {
                                     setCategory("business");
                                     setKeyword("");
                                     setSearch("");
                                 }}>Business</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/entertainment" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/entertainment" onClick={() => {
                                     setCategory("entertainment");
                                     setKeyword("");
                                     setSearch("");
                                 }}>Entertainment</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/general" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/general" onClick={() => {
                                     setCategory("general");
                                     setKeyword("");
                                     setSearch("");
                                 }}>General</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/health" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/health" onClick={() => {
                                     setCategory("health");
                                     setKeyword("");
                                     setSearch("");
                                     }}>Health</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/science" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/science" onClick={() => {
                                     setCategory("science");
                                     setKeyword("");
                                     setSearch("");
@@ -66,14 +66,14 @@ function NavBar() {
                                 }>Science</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/sports" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/sports" onClick={() => {
                                     setCategory("sports");
                                     setKeyword("");
                                     setSearch("");
                                 }}>Sports</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/technology" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/technology" onClick={() => {
                                     setCategory("technology");
                                     setKeyword("");
                                     setSearch("");

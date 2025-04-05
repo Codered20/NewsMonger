@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/NewsMonger/health" element={<News category="health" />} />
           <Route exact path="/NewsMonger/science" element={<News category="science" />} />
           <Route exact path="/NewsMonger/sports" element={<News category="sports" />} />
-          <Route exact path="/NewsMongertechnology" element={<News category="technology" />} />
+          <Route exact path="/NewsMonger/technology" element={<News category="technology" />} />
           <Route exact path="/NewsMonger/keyword" element={<News />} />
         </Routes>
       </Router>

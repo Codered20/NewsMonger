@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from './components/NavBar';
 import News from './components/News';
-import { useContext } from 'react';
-import { AppContext } from './components/context/context';
+// import { useContext } from 'react';
+// import { AppContext } from './components/context/context';
 
 function App() {
   console.log("News Application");

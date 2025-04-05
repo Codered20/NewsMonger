@@ -7,7 +7,6 @@ import { AppContext } from './components/context/context';
 
 function App() {
   console.log("News Application");
-  const [keyword] = useContext(AppContext)
   return (
     <div>
       <Router>

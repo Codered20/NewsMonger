@@ -44,7 +44,7 @@ function NavBar() {
                                 }}>Entertainment</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/NewsMonger/general" onClick={() => {
+                                <Link className="nav-link" to="/NewsMonger/" onClick={() => {
                                     setCategory("general");
                                     setKeyword("");
                                     setSearch("");
